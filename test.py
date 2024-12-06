@@ -1,7 +1,10 @@
-import openai
+from openai import OpenAI
 import streamlit as st
 import pandas as pd
 import time
+import os
+
+client = OpenAI()
 
 st.set_page_config(
     page_title="openai",
@@ -24,7 +27,7 @@ if st.session_state.openai_apikey != "":
     
     def call_openai_api():
         try:
-            response = openai.ChatCompletion.create(
+            response = client.chat.completions.create(
                 engine ="text-davinci-002",
                 prompt=prompt,
                 temperature=0.5,
