@@ -30,7 +30,7 @@ if st.session_state.openai_apikey != "":
                 max_tokens=3000
             )
             return response
-        except openai.error.RateLimitError as e:
+        except openai.RateLimitError as e:
             print(f"Rate limit exceeded. Waiting before making the next request. Error: {e}")
             time.sleep(60)  # Wait for a minute
             return call_openai_api()
