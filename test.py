@@ -21,6 +21,7 @@ if st.session_state.openai_apikey != "":
 
     openai.api_key = st.session_state.openai_apikey
     prompt = f"Write 5 introductions for a blog post about {st.session_state.chatbot_input} and reason why I should use them"
+    
     def call_openai_api():
         try:
             response = openai.chat.completions.create(
