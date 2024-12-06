@@ -65,8 +65,8 @@ if caption_topic and api_key:
 
     def call_openai_api():
             # Call OpenAI API
-            response = openai.Completion.create(
-                engine="text-davinci-003",  # Updated engine for better results
+            response = openai.chat.completions.create(
+                model="gpt-4o",  # Updated engine for better results
                 prompt=prompt,
                 temperature=0.5,
                 max_tokens=300,
