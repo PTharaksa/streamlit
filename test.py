@@ -4,8 +4,6 @@ import pandas as pd
 import time
 import os
 
-client = OpenAI()
-
 st.set_page_config(
     page_title="openai",
     layout='wide',
@@ -22,7 +20,11 @@ if st.session_state.openai_apikey != "":
     st.text_input("ต้องการเขียนแคปชั่นเกี่ยวกับอะไร", key = "chatbot_input")
 
 
-    openai.api_key = st.session_state.openai_apikey
+    OPENAI_API_KEY = st.session_state.openai_apikey
+    client = OpenAI(
+    api_key=os.environ.get("OPENAI_API_KEY"),
+)
+
     prompt = f"Write 5 introductions for a blog post about {st.session_state.chatbot_input} and reason why I should use them"
     
     def call_openai_api():
