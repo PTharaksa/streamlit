@@ -24,7 +24,7 @@ if st.session_state.openai_apikey != "":
     
     def call_openai_api():
         try:
-            response = openai.chat.completions.create(
+            response = openai.ChatCompletion.create(
                 engine ="text-davinci-002",
                 prompt=prompt,
                 temperature=0.5,
