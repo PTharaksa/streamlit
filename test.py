@@ -73,9 +73,9 @@ if caption_topic and api_key:
                 max_tokens=300,
             )
             return response
-        except openai.error.OpenAIError as e:
-            st.error(f"Error interacting with OpenAI API: {str(e)}")
-            return None
+        # except openai.error.OpenAIError as e:
+        #     st.error(f"Error interacting with OpenAI API: {str(e)}")
+        #     return None
 
     # Get response and display it
     response = call_openai_api()
