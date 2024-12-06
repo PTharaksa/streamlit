@@ -64,7 +64,6 @@ if caption_topic and api_key:
     prompt = f"Write 5 introductions for a blog post about {caption_topic} and reasons why I should use them."
 
     def call_openai_api():
-        try:
             # Call OpenAI API
             response = openai.Completion.create(
                 engine="text-davinci-003",  # Updated engine for better results
