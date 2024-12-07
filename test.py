@@ -35,13 +35,13 @@ def call_openai_api(prompt):
         st.error(f"Error while calling OpenAI API: {e}")
         return None
 
-    if caption_topic and api_key:
-        prompt = f"Write 5 introductions for a blog post about {caption_topic} and reasons why I should use them."
-        response = call_openai_api(prompt)
+if caption_topic and api_key:
+    prompt = f"Write 5 introductions for a blog post about {caption_topic} and reasons why I should use them."
+    response = call_openai_api(prompt)
 
     
-    if response:
-        st.text_area("Generated Captions:", response, height=200)
-    else:
-        st.info("Please enter a topic to generate captions.", icon='⚠️')
+if response:
+    st.text_area("Generated Captions:", response, height=200)
+else:
+    st.info("Please enter a topic to generate captions.", icon='⚠️')
 
