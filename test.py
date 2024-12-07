@@ -21,19 +21,19 @@ if caption_topic and api_key:
     prompt = f"Write 5 introductions for a blog post about {caption_topic} and reasons why I should use them."
 
 def call_openai_api(prompt):
-            response = client.chat.completions.create(
-                model="davinci-002",
-                 messages=[
-            {
+    response = client.chat.completions.create(
+            model="davinci-002",
+            messages=[
+                {
                 "role": "system",
                 "content": META_PROMPT,
-            },
-            {
+                },
+                {
                 "role": "user",
                 "content": "Task, Goal, or Current Prompt:\n" + prompt,
-            },
-        ],
-    )
+                },
+            ],
+        )
     return completion.choices[0].message.content
     
     response = call_openai_api()
