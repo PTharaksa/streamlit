@@ -1,4 +1,4 @@
-from openai import OpenAI
+import openai
 import streamlit as st
 
 META_PROMPT = ""
@@ -12,15 +12,13 @@ if api_key:
 else:
     st.warning("Please provide your OpenAI API key!", icon="⚠️")
 
-client = OpenAI(openai.api_key)
-
 caption_topic = st.text_input("What topic would you like a caption for?", key="chatbot_input")
 
 if caption_topic and api_key:
     prompt = f"Write 5 introductions for a blog post about {caption_topic} and reasons why I should use them."
 
 def call_openai_api(prompt):
-    response = client.chat.completions.create(
+    response = openai.ChatCompletion.create(
             model="davinci-002",
             messages=[
                 {
