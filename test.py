@@ -2,19 +2,17 @@ from openai import OpenAI
 import streamlit as st
 
 META_PROMPT = ""
-OPENAI_API_KEY = ""
 
-# Set up the Streamlit app
 st.sidebar.header("API Key Configuration")
 api_key = st.sidebar.text_input("Enter your OpenAI API key", key="openai_apikey", type="password")
 
 if api_key:
     st.success("OpenAI API key provided!", icon="✅")
-    OPENAI_API_KEY = st.session_state.openai_apikey
+    openai.api_key = st.session_state.openai_apikey
 else:
     st.warning("Please provide your OpenAI API key!", icon="⚠️")
 
-client = OpenAI()
+client = OpenAI(openai.api_key)
 
 caption_topic = st.text_input("What topic would you like a caption for?", key="chatbot_input")
 
