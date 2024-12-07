@@ -6,10 +6,11 @@ OPENAI_API_KEY = ""
 
 # Set up the Streamlit app
 st.sidebar.header("API Key Configuration")
-OPENAI_API_KEY = st.session(st.sidebar.text_input("Enter your OpenAI API key", key="openai_apikey", type="password"))
+api_key = st.sidebar.text_input("Enter your OpenAI API key", key="openai_apikey", type="password")
 
-if OPENAI_API_KEY:
+if api_key:
     st.success("OpenAI API key provided!", icon="✅")
+    OPENAI_API_KEY = st.session_state.openai_apikey
 else:
     st.warning("Please provide your OpenAI API key!", icon="⚠️")
 
