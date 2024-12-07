@@ -9,7 +9,7 @@ api_key = st.sidebar.text_input("Enter your OpenAI API key", key="openai_apikey"
 
 if api_key:
     st.success("OpenAI API key provided!", icon="✅")
-    openai.api_key = api_key  # Assign API key to the OpenAI library
+    OPENAI_API_KEY = api_key 
 else:
     st.warning("Please provide your OpenAI API key!", icon="⚠️")
 
