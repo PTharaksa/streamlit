@@ -19,7 +19,7 @@ if caption_topic and api_key:
 
 def call_openai_api(prompt):
     response = openai.ChatCompletion.create(
-            model="davinci-002",
+            model="text-davinci-002",
             messages=[
                 {
                 "role": "system",
