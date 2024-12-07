@@ -40,5 +40,5 @@ if caption_topic and api_key:
     if response:
         st.text_area("Generated Captions:", response.choices[0].text.strip())
 else:
-    st.info("Please enter a topic to generate captions.", icon='⚠️)
+    st.info("Please enter a topic to generate captions.", icon='⚠️')
 
