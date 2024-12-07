@@ -14,26 +14,31 @@ else:
 
 caption_topic = st.text_input("What topic would you like a caption for?", key="chatbot_input")
 
-if caption_topic and api_key:
-    prompt = f"Write 5 introductions for a blog post about {caption_topic} and reasons why I should use them."
 
 def call_openai_api(prompt):
-    response = openai.ChatCompletion.create(
-            model="text-davinci-002",
-            messages=[
-                {
-                "role": "system",
-                "content": META_PROMPT,
-                },
-                {
-                "role": "user",
-                "content": "Task, Goal, or Current Prompt:\n" + prompt,
-                },
-            ],
-        )
-    return completion.choices[0].message.content
+    try:
+        response = openai.ChatCompletion.create(
+                model="text-davinci-002",
+                messages=[
+                    {
+                    "role": "system",
+                    "content": META_PROMPT,
+                    },
+                    {
+                    "role": "user",
+                    "content": "Task, Goal, or Current Prompt:\n" + prompt,
+                    },
+                ],
+            )
+        return completion.choices[0].message.content
+    except Exception as e:
+        return f"Error: {e}"
+
+    if caption_topic and api_key:
+        prompt = f"Write 5 introductions for a blog post about {caption_topic} and reasons why I should use them."
+        response = call_openai_api(prompt)
+
     
-    response = call_openai_api(prompt)
     if response:
         st.text_area("Generated Captions:", response, height=200)
     else:
