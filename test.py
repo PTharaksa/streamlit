@@ -2,14 +2,14 @@ from openai import OpenAI
 import streamlit as st
 
 META_PROMPT = ""
+OPENAI_API_KEY = ""
 
 # Set up the Streamlit app
 st.sidebar.header("API Key Configuration")
-api_key = st.sidebar.text_input("Enter your OpenAI API key", key="openai_apikey", type="password")
+OPENAI_API_KEY = st.session(st.sidebar.text_input("Enter your OpenAI API key", key="openai_apikey", type="password"))
 
-if api_key:
+if OPENAI_API_KEY:
     st.success("OpenAI API key provided!", icon="✅")
-    OPENAI_API_KEY = api_key 
 else:
     st.warning("Please provide your OpenAI API key!", icon="⚠️")
 
