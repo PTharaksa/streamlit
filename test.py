@@ -14,7 +14,7 @@ if api_key:
 else:
     st.warning("Please provide your OpenAI API key!", icon="⚠️")
 
-client = OpenAI()
+client = OpenAI(OPENAI_API_KEY)
 
 caption_topic = st.text_input("What topic would you like a caption for?", key="chatbot_input")
 
