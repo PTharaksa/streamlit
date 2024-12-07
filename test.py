@@ -35,7 +35,7 @@ def call_openai_api(prompt):
     
     response = call_openai_api(prompt)
     if response:
-        st.text_area("Generated Captions:", response.choices[0].message.content.text.strip())
+        st.text_area("Generated Captions:", response, height=200)
     else:
         st.info("Please enter a topic to generate captions.", icon='⚠️')
 
