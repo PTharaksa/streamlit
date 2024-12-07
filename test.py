@@ -35,7 +35,6 @@ if caption_topic and api_key:
         ],
     )
     return completion.choices[0].message.content
-    )
     
     response = call_openai_api()
     if response:
