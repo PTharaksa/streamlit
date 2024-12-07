@@ -20,7 +20,7 @@ caption_topic = st.text_input("What topic would you like a caption for?", key="c
 if caption_topic and api_key:
     prompt = f"Write 5 introductions for a blog post about {caption_topic} and reasons why I should use them."
 
-    def call_openai_api(prompt):
+def call_openai_api(prompt):
             response = client.chat.completions.create(
                 model="davinci-002",
                  messages=[
