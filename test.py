@@ -18,7 +18,7 @@ caption_topic = st.text_input("What topic would you like a caption for?", key="c
 def call_openai_api(prompt):
     try:
         response = openai.ChatCompletion.create(
-                model="davinci-200",
+                model="gpt-300",
                 messages=[
                     {
                     "role": "system",
