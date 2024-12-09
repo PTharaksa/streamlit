@@ -1,6 +1,5 @@
 import openai
 import streamlit as st
-openai migrate
 
 META_PROMPT = ""
 
